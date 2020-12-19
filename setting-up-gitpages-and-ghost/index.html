@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Setting up GitPages and Ghost</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=64ff954ef5.css" />
+
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="Avi Bharwaney" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Setting up GitPages and Ghost" />
+    <meta property="og:description" content="TL;DR: If you want to set-up an aesthetic blog for nearly free and are comfortable with some basic command line arguments, I recommend a) setting up Ghost for the theme and CMS solution, b) GitPages for free hosting, and c) Namecheap for a good price on the domain name." />
+    <meta property="og:url" content="http://localhost:2368/setting-up-gitpages-and-ghost/" />
+    <meta property="article:published_time" content="2020-10-25T04:59:57.000Z" />
+    <meta property="article:modified_time" content="2020-10-25T05:06:46.000Z" />
+    <meta property="article:tag" content="Projects" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Setting up GitPages and Ghost" />
+    <meta name="twitter:description" content="TL;DR: If you want to set-up an aesthetic blog for nearly free and are comfortable with some basic command line arguments, I recommend a) setting up Ghost for the theme and CMS solution, b) GitPages for free hosting, and c) Namecheap for a good price on the domain name." />
+    <meta name="twitter:url" content="http://localhost:2368/setting-up-gitpages-and-ghost/" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Avinash Vinod Bharwaney" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Projects" />
+    <meta name="twitter:site" content="@ghost" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Avi Bharwaney",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/favicon.ico",
+            "width": 48,
+            "height": 48
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Avinash Vinod Bharwaney",
+        "url": "http://localhost:2368/author/avinash/",
+        "sameAs": []
+    },
+    "headline": "Setting up GitPages and Ghost",
+    "url": "http://localhost:2368/setting-up-gitpages-and-ghost/",
+    "datePublished": "2020-10-25T04:59:57.000Z",
+    "dateModified": "2020-10-25T05:06:46.000Z",
+    "keywords": "Projects",
+    "description": "TL;DR:\n\n * If you want to set-up an aesthetic blog for nearly free and are comfortable\n   with some basic command line arguments, I recommend a) setting up Ghost for\n   the theme and CMS solution, b) GitPages for free hosting, and c) Namecheap\n   for a good price on the domain name. \n * The general process involves: a) installing Ghost and setting up your\n   content, b) adding content, c) pushing changes to GitHub and linking to\n   GitPages, d) registering for the domain name (~$5/year) and link",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.35" />
+    <link rel="alternate" type="application/rss+xml" title="Avi Bharwaney" href="../rss/index.html" />
+
+</head>
+<body class="post-template tag-projects">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header">
+    <div class="outer site-nav-main">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left-wrapper">
+        <div class="site-nav-left">
+                <a class="site-nav-logo" href="../index.html">Avi Bharwaney</a>
+            <div class="site-nav-content">
+                    <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-about"><a href="../about-me/index.html">About</a></li>
+    <li class="nav-life"><a href="../tag/life/index.html">Life</a></li>
+    <li class="nav-principles"><a href="http://localhost:2368/tag/principles/">Principles</a></li>
+    <li class="nav-projects"><a href="../tag/projects/index.html">Projects</a></li>
+    <li class="nav-invest"><a href="../tag/invest/index.html">Invest</a></li>
+    <li class="nav-business"><a href="../tag/business/index.html">Business</a></li>
+    <li class="nav-reading"><a href="../tag/reading/index.html">Reading</a></li>
+</ul>
+
+                    <span class="nav-post-title dash">Setting up GitPages and Ghost</span>
+            </div>
+        </div>
+    </div>
+    <div class="site-nav-right">
+            <div class="social-links">
+                    <a class="social-link social-link-fb" href="https://www.facebook.com/ghost" title="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm5.204 4.911h-3.546c-2.103 0-4.443.885-4.443 3.934.01 1.062 0 2.08 0 3.225h-2.433v3.872h2.509v11.147h4.61v-11.22h3.042l.275-3.81h-3.397s.007-1.695 0-2.187c0-1.205 1.253-1.136 1.329-1.136h2.054V4.911z" /></svg></a>
+                    <a class="social-link social-link-tw" href="https://twitter.com/ghost" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            </div>
+                <a class="rss-button" href="https://feedly.com/i/subscription/feed/http://localhost:2368/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+</a>
+
+    </div>
+</nav>
+    </div>
+</div></header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post tag-projects no-image no-image">
+
+            <header class="post-full-header">
+
+                <section class="post-full-tags">
+                    <a href="../tag/projects/index.html">Projects</a>
+                </section>
+
+                <h1 class="post-full-title">Setting up GitPages and Ghost</h1>
+
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <div class="author-profile-image"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"/></g></svg>
+</div>
+                                    <div class="author-info">
+                                        <h2>Avinash Vinod Bharwaney</h2>
+                                        <p>Read <a href="../author/avinash/index.html">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="../author/avinash/index.html" class="author-avatar author-profile-image"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"/></g></svg>
+</a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="../author/avinash/index.html">Avinash Vinod Bharwaney</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2020-10-25">25 Oct 2020</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p><strong>TL;DR:</strong></p><ul><li>If you want to set-up an aesthetic blog for nearly free and are comfortable with some basic command line arguments, I recommend a) setting up Ghost for the theme and CMS solution, b) GitPages for free hosting, and c) Namecheap for a good price on the domain name. </li><li>The general process involves: a) installing Ghost and setting up your content, b) adding content, c) pushing changes to GitHub and linking to GitPages, d) registering for the domain name (~$5/year) and linking your custom domain to GitPages.</li></ul><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=2000&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ" class="kg-image" alt="Unsplash Power" srcset="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ 600w, https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1000&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ 1000w, https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ 1600w, https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=2400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ 2400w" sizes="(min-width: 720px) 720px"><figcaption>Photo by <a href="https://unsplash.com/@domenicoloia?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit">Domenico Loia</a> / <a href="https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit">Unsplash</a></figcaption></figure><p>Developing my own blog set-up was something on my to-do list for quite a while. I wanted a public directory to store my notes and thoughts, similar to a document management system. </p><p>I started this journey last year with Blogger and continued to write on Blogger for a while, typically storing learning journeys and key takeaways from my experiences, even using it to store short essays responses in Mandarin as part of my language learning. But I was definitely not satisfied.</p><p>I came across great personal websites and always wanted to create one of my own. My journey started learning about existing CMS options such as Wix or Wordpress, hosting solutions like Bluehost, and domain name registries like Namecheap. Though comprehensive, these solutions had a price point higher than I expected. There must be a better solution, I thought to myself. </p><p>After a rabbit hole deep-dive on the subject, I found myself reading up about the GitPages and Jekyll set-up. Jekyll is a static site generator and GitPages is a free static site hosting service. </p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://jekyllrb.com/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Jekyll • Simple, blog-aware, static sites</div><div class="kg-bookmark-description">Transform your plain text into static websites and blogs</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://jekyllrb.com/favicon.ico"><span class="kg-bookmark-publisher">Jekyll • Simple, blog-aware, static sites</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://jekyllrb.com/img/jekyll-og.png"></div></a></figure><p>You could effectively copy a pre-existing template from Jekyll, make a few edits, and push them through GitHub to GitPages, all for free! </p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://pages.github.com/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub Pages</div><div class="kg-bookmark-description">Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://pages.github.com/favicon.ico"><span class="kg-bookmark-publisher">GitHub Pages</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://pages.github.com/images/logo.svg"></div></a></figure><p>The only drawbacks: GitHub only allows hosting for one site per account (obvious circumvention: make more GitHub accounts), and Jekyll's templates aren't the most aesthetic. There goes that option; I really wanted something good looking otherwise I was comfortable sticking with Blogger. </p><p>I soon came across a site that really piqued my interest and whilst scrolling, came across a link to Ghost.com. Wow, a beautiful interface and set-up built just for blogging. This was too good to be true...but was it free? Never mind, it's $29/month!</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://ghost.org/pricing/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Ghost(Pro) - Official managed hosting for Ghost</div><div class="kg-bookmark-description">The best Ghost managed hosting from the creators of the open source publishing platform. Spend less time on your server, more time on your site.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://ghost.org/icons/icon-512x512.png?v&#x3D;7b7c010c4f88a275be80db697657cff6"><span class="kg-bookmark-publisher">Ghost</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://ghost.org/images/meta/Ghost.png"></div></a></figure>
+                </div>
+            </section>
+
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+                <article class="post-card post tag-invest no-image no-image">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../understanding-the-yield-curve/index.html">
+
+            <header class="post-card-header">
+                    <div class="post-card-primary-tag">Invest</div>
+                <h2 class="post-card-title">Banks and Yield Curves</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>Banks make money from interest rate spreads, relying predominantly on instruments such as the yield curve. They borrow at the short-end, paying out lower interest rates to their lenders (short-term bank deposits), and then lend out to others at the long-end (long-term bank loans,</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        Avinash Vinod Bharwaney
+                    </div>
+            
+                    <a href="../author/avinash/index.html" class="static-avatar author-profile-image"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"/></g></svg>
+</a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/avinash/index.html">Avinash Vinod Bharwaney</a></span>
+                <span class="post-card-byline-date"><time datetime="2020-10-25">25 Oct 2020</time> <span class="bull">&bull;</span> 2 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+
+                <article class="post-card post tag-life no-image no-image">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../untitled/index.html">
+
+            <header class="post-card-header">
+                    <div class="post-card-primary-tag">Life</div>
+                <h2 class="post-card-title">Scalable Knowledge</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>What is scalable knowledge?When Thomas Edison* developed the light bulb, it lit up the world (pun intended). One invention could be scaled to tremendously impact the lives of so many people, for so long, allowing for increased productivity and development.  Photo by zhang</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        Avinash Vinod Bharwaney
+                    </div>
+            
+                    <a href="../author/avinash/index.html" class="static-avatar author-profile-image"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"/></g></svg>
+</a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/avinash/index.html">Avinash Vinod Bharwaney</a></span>
+                <span class="post-card-byline-date"><time datetime="2020-10-24">24 Oct 2020</time> <span class="bull">&bull;</span> 3 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../index.html">Avi Bharwaney</a> &copy; 2020</section>
+                <nav class="site-footer-nav">
+                    <a href="../index.html">Latest Posts</a>
+                    <a href="https://www.facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/ghost" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script src="../assets/built/casper.js%3Fv=64ff954ef5"></script>
+
+    <script>
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
+
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
+
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
+
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
+</script>
+
+
+    
+
+</body>
+</html>
